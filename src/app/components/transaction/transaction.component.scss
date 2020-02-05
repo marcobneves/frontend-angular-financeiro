@@ -1,0 +1,26 @@
+table  {
+    width: 100%;
+}
+
+table tr th {
+    font-family: var(--text-font-family);
+    border: 1px solid var(--color-border);
+    border-collapse: collapse;
+    padding: 15px;
+    font-size: 14px;
+}
+.title {
+    color: var(--color-white);
+    background-image: linear-gradient(var(--primary-color),var(--second-color));
+    font-size: 27px;
+    font-weight: 600;
+}
+
+tr:nth-child(even) {
+    background-color: var(--third-color);
+}
+table tr:hover {
+    background-color: var(--fourth-color);
+    cursor: pointer;
+    color: var(--color-white);
+}
