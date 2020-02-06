@@ -1,11 +1,15 @@
 :root {
-    --second-color: #3da3dd;
-    --primary-color: #3fafef;
-    --primary-bold: #2679aa;
-    --third-color: #dfe8ec;
+    --second-color: #5b4ca6;
+    --primary-color: #695bb6;
+    --primary-bold: #483c85;
+    // --third-color: #dfe8ec;
+    --third-color: #ffffff;
+
     --color-white: #ffffff;
     --color-border: gainsboro;
     --fourth-color: #778ba0;
+    // --fourth-color: #1f5a81;
+    
     --text-font-family: "Poppins", sans-serif;
 }
   
@@ -21,6 +25,40 @@ body {
 
 .item-form {
     margin-bottom: 20px;
+}
+
+
+.title {
+    font-size: 25px;
+    height: 50px;
+    display: flex;
+    // justify-content: center;
+    // background-color: cadetblue;
+    align-items: center;
+    margin-left: 8px;
+}
+
+/* Use this selector to override the line style on a given series */
+.ct-series-a .ct-line {
+    /* Set the colour of this series line */
+    stroke: var(--primary-color);
+    /* Control the thikness of your lines */
+    // stroke-width: 2px;
+    /* Create a dashed line with a pattern */
+    // stroke-dasharray: 10px 20px;
+  }
+  
+  /* This selector overrides the points style on line charts. Points on line charts are actually just very short strokes. This allows you to customize even the point size in CSS */
+  .ct-series-a .ct-point {
+    /* Colour of your points */
+    stroke: var(--primary-color);
+    /* Size of your points */
+    // stroke-width: 10px;
+    /* Make your points appear as squares */
+    // stroke-linecap: square;
+  }
+  .ct-series-a  .ct-slice-donut-solid, .ct-series-a .ct-area {
+    fill: var(--primary-color);
 }
 
 

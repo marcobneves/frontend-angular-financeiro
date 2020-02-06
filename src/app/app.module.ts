@@ -6,17 +6,21 @@ import { TransactionComponent } from './components/transaction/transaction.compo
 import { TransactionService } from './service/transaction.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MenuComponent } from './components/menu/menu.component';
+import { ChartistModule } from 'ng-chartist'; 
+import { ReportComponent } from './components/report/report.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TransactionComponent,
     MenuComponent,
+    ReportComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ChartistModule
   ],
   providers: [TransactionService],
   bootstrap: [AppComponent]

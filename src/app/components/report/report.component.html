@@ -1,0 +1,8 @@
+<div class="report-container">
+  <div *ngFor="let chart of charts, index as i" class="report-item">
+    <h1 class="title">{{reportsTitle[i]}}</h1>
+    <x-chartist [data]="chart.data" [type]="chart.type"
+      [options]="chart.options" [responsiveOptions]="chart.responsiveOptions" [events]="chart.events">
+    </x-chartist>
+  </div>
+</div>
