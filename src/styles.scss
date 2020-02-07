@@ -2,21 +2,16 @@
     --second-color: #5b4ca6;
     --primary-color: #695bb6;
     --primary-bold: #483c85;
-    // --third-color: #dfe8ec;
     --third-color: #ffffff;
-
     --color-white: #ffffff;
     --color-border: gainsboro;
     --fourth-color: #778ba0;
-    // --fourth-color: #1f5a81;
-    
     --text-font-family: "Poppins", sans-serif;
 }
   
 :global(html, body) {
     height: 100%;
     width: 100%;
-    font-family: var(--text-font-family);
 }
 
 body {
@@ -32,33 +27,39 @@ body {
     font-size: 25px;
     height: 50px;
     display: flex;
-    // justify-content: center;
-    // background-color: cadetblue;
     align-items: center;
     margin-left: 8px;
+    color: #414141;
+    font-family: var(--text-font-family);
 }
 
 /* Use this selector to override the line style on a given series */
 .ct-series-a .ct-line {
-    /* Set the colour of this series line */
     stroke: var(--primary-color);
-    /* Control the thikness of your lines */
-    // stroke-width: 2px;
-    /* Create a dashed line with a pattern */
-    // stroke-dasharray: 10px 20px;
-  }
+    stroke-width: 2px;
+}
   
-  /* This selector overrides the points style on line charts. Points on line charts are actually just very short strokes. This allows you to customize even the point size in CSS */
-  .ct-series-a .ct-point {
-    /* Colour of your points */
+ /* This selector overrides the points style on line charts. Points on line charts are actually just very short strokes. This allows you to customize even the point size in CSS */
+.ct-series-a .ct-point {
     stroke: var(--primary-color);
-    /* Size of your points */
-    // stroke-width: 10px;
-    /* Make your points appear as squares */
     // stroke-linecap: square;
-  }
-  .ct-series-a  .ct-slice-donut-solid, .ct-series-a .ct-area {
+}
+
+.ct-label {
+    fill: rgba(0, 0, 0, 0.7);
+    font-size: 0.75rem;
+    line-height: 1;
+    color: #454545;
+}
+
+.ct-series-a .ct-area {
     fill: var(--primary-color);
+}
+.ct-series-a .ct-slice-donut {
+    stroke: #6254af26;
+}
+.ct-series-b .ct-slice-donut {
+    stroke: #6254afb3;
 }
 
 

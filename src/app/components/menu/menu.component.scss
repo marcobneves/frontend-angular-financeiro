@@ -5,6 +5,16 @@
     height: 60px;
     background-image: linear-gradient(var(--primary-color), var(--second-color));
 }
+.logo {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    // background-color: red;
+    font-size: 30px;
+    font-family: var(--text-font-family);
+    font-weight: 800;
+    color: var(--color-white);
+}
 .items {
     display: flex;
     align-items: center;
@@ -15,16 +25,16 @@
     justify-content: center;
     align-items: center;
     margin: 25px;
+    font-family: var(--text-font-family);
     background-color: var(--primary-bold);
     color: white;
     height: 40px;
     margin-left: 10px;
     margin-right: 10px;
     width: 100px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    // box-shadow: 0 2px 32px rgba(125,162,190,.2);
-    // box-shadow: 0 -10px 30px rgba(125, 162, 190, .2);
+    border-radius: 6px;
+    padding-left: 70px;
+    padding-right: 70px;
     box-shadow: 0 -10px 30px rgba(125, 162, 190, 0.2);
 }
 .items div:hover {

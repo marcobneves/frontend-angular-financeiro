@@ -1,19 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import * as Chartist from 'chartist';
-
-import { ChartEvent, ChartType } from 'ng-chartist';
+import { Report } from 'src/app/interface/report';
 
 declare var require: any;
-
 const data: any = require('./data.json');
-
-export interface Chart {
-  type: ChartType;
-  data: Chartist.IChartistData;
-  options?: any;
-  responsiveOptions?: any;
-  events?: ChartEvent;
-}
 
 @Component({
   selector: 'transaction-report',
@@ -23,27 +12,53 @@ export interface Chart {
 
 export class ReportComponent implements OnInit {
 
-  public charts: Chart[];
-  public reportsTitle = ['Resumo de quantidade de transações', "Transações por status"]
+  public reports: Report[];
+
   constructor() {
-    this.charts = [
+    
+    // report objetc
+    this.reports = [
       {
+        title: 'Quantidade de transações',
+        type: 'Line',
         data: data.LineWithArea,
         options: {
           low: 0,
           showArea: true
         },
-        type: 'Line'
+        resume: {
+          paid: {
+            title:'Processadas',
+            total: 30450,
+          },
+          notPaid: {
+            title:'Não processadas',
+            total: 15210,
+          }
+        }
       },
       {
+        title: 'Situação de transações',
         data: data.Pie,
         options: {
           donut: true,
-          showLabel: false
+          showLabel: true
         },
-        type: 'Pie'
+        type: 'Pie',
+        resume: {
+          paid: {
+            title:'Processadas 35%',
+            total: '23.434,00',
+          },
+          notPaid: {
+            title:'Não processadas 65%',
+            total: '12.212,00',
+          }
+        }
       },
     ];
+
+
   }
   ngOnInit() {
   }

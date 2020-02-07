@@ -1,8 +1,19 @@
 <div class="report-container">
-  <div *ngFor="let chart of charts, index as i" class="report-item">
-    <h1 class="title">{{reportsTitle[i]}}</h1>
-    <x-chartist [data]="chart.data" [type]="chart.type"
-      [options]="chart.options" [responsiveOptions]="chart.responsiveOptions" [events]="chart.events">
+  <div *ngFor="let report of reports" class="report-item">
+    <h1 class="title">{{report.title}}</h1>
+    <x-chartist [data]="report.data" [type]="report.type" [options]="report.options"
+      [responsiveOptions]="report.responsiveOptions">
     </x-chartist>
+    <div class="report-resume">
+      <div class="item">
+        <div class="report-resume-title">{{report.resume.paid.title}}</div>
+        <div class="report-resume-total">{{report.resume.paid.total}}</div>
+      </div>
+
+      <div class="item">
+        <div class="report-resume-title">{{report.resume.notPaid.title}}</div>
+        <div class="report-resume-total">{{report.resume.notPaid.total}}</div>
+      </div>
+    </div>
   </div>
 </div>
