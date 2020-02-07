@@ -28,11 +28,11 @@ export class ReportComponent implements OnInit {
         },
         resume: {
           paid: {
-            title:'Processadas',
+            title:'Processado',
             total: 30450,
           },
           notPaid: {
-            title:'Não processadas',
+            title:'Não processado',
             total: 15210,
           }
         }
@@ -47,11 +47,11 @@ export class ReportComponent implements OnInit {
         type: 'Pie',
         resume: {
           paid: {
-            title:'Processadas 35%',
+            title:'Pago 35%',
             total: '23.434,00',
           },
           notPaid: {
-            title:'Não processadas 65%',
+            title:'Pendente 65%',
             total: '12.212,00',
           }
         }

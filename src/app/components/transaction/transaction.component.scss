@@ -1,26 +1,33 @@
+@import '../../../css/variable.scss';
+
+.table-responsivo {
+    width: 100%;
+    overflow-x: auto;
+}
+
 table  {
     width: 100%;
 }
 
 table tr th {
-    font-family: var(--text-font-family);
-    border: 1px solid var(--color-border);
+    font-family: $text-font-family;
+    border: 1px solid $color-border;
     border-collapse: collapse;
     padding: 15px;
     font-size: 14px;
 }
 .title-table {
-    color: var(--color-white);
-    background-image: linear-gradient(var(--primary-color),var(--second-color));
+    color: $color-white;
+    background-image: linear-gradient($primary-color,$second-color);
     font-size: 27px;
     font-weight: 600;
 }
 
 tr:nth-child(even) {
-    background-color: var(--third-color);
+    background-color: $third-color;
 }
 table tr:hover {
-    background-color: var(--fourth-color);
+    background-color: $fourth-color;
     cursor: pointer;
-    color: var(--color-white);
+    color: $color-white;
 }

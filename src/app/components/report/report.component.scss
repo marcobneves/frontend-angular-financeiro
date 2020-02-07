@@ -1,9 +1,14 @@
+@import '../../../css/variable.scss';
+
 .report-container {
     display: flex;
     flex-direction: row;
     margin-top: 25px;
     width: 100%;
+    font-family: $text-font-family;
+
 }
+
 .report-item {
     width: 100%;
 }
@@ -12,24 +17,58 @@
     flex-direction: row;
     padding: 4px;
 }
+
 .report-resume > div{
     display: flex;
     flex-direction: column;
     justify-content: center;
     justify-items: center;
     align-items: center;
-    background-color: #6153ae14;
+    background-color: $primary-color-background;
     border-top-right-radius: 40px;
     margin-left: 13px;
     width: 100%;
     height: 87px;
 }
 
+
 .report-resume-title {
     height: 27px;
 }
 
 .report-resume-total {
-    font-size: 40px;
-    color: var(--primary-bold);
+    font-size: 37px;
+    font-weight: 600;
+    color: $primary-bold;
 }
+
+@media (max-width: $breakpoint-tablet) {
+
+    .report-container {
+        flex-direction: column;
+    }
+    .report-resume > div{
+        padding: 0px;
+        margin-left: 0px;
+    }
+    .report-resume-total {
+        font-size: 30px;
+    }
+    
+}
+
+@media (max-width: $breakpoint-phone) {
+
+    .report-container {
+        flex-direction: column;
+    }
+    .report-resume > div{
+        padding: 0px;
+        margin-left: 0px;
+    }
+    .report-resume-total {
+        font-size: 20px;
+    }
+    
+}
+
