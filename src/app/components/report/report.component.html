@@ -4,13 +4,13 @@
     <x-chartist [data]="report.data" [type]="report.type" [options]="report.options"
       [responsiveOptions]="report.responsiveOptions">
     </x-chartist>
-    <div class="report-resume">
-      <div class="item">
-        <div class="report-resume-title">{{report.resume.paid.title}}</div>
-        <div class="report-resume-total">{{report.resume.paid.total}}</div>
-      </div>
 
-      <div class="item">
+    <div class="report-resume">
+      <div class="paid-background">
+        <div class="report-resume-title paid-text">{{report.resume.paid.title}}</div>
+        <div class="report-resume-total paid-text">{{report.resume.paid.total}}</div>
+      </div>
+      <div>
         <div class="report-resume-title">{{report.resume.notPaid.title}}</div>
         <div class="report-resume-total">{{report.resume.notPaid.total}}</div>
       </div>

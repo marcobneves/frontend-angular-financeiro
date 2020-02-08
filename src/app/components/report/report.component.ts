@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Report } from 'src/app/interface/report';
-
-declare var require: any;
-const data: any = require('./data.json');
+import { TransactionService } from 'src/app/service/transaction.service';
+import { formatCurrency } from '../../util/helpers'
 
 @Component({
   selector: 'transaction-report',
@@ -13,33 +12,61 @@ const data: any = require('./data.json');
 export class ReportComponent implements OnInit {
 
   public reports: Report[];
+  public transactions = {}
+  public resultsPaid = [];
+  public resultsNotPaid = [];
+  public resultsAmountPaid;
+  public resultsAmountNotPaid;
+  public transactionTotalMonth = [];
+  public errorMsg;
 
-  constructor() {
-    
-    // report objetc
+  constructor(private _transactionService: TransactionService) { }
+
+  // Config chart
+  HandleReportAmount() {
+
     this.reports = [
       {
         title: 'Quantidade de transações',
         type: 'Line',
-        data: data.LineWithArea,
+        data: {
+          "labels": [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Abr",
+            "Mai",
+            "Jun",
+            "Jul",
+            "Ago",
+            "Set",
+            "Out",
+            "Nov",
+            "Dez"
+          ],
+          "series": [Object.values(this.transactionTotalMonth)]
+        },
         options: {
           low: 0,
           showArea: true
         },
         resume: {
           paid: {
-            title:'Processado',
-            total: 30450,
+            title: '(Qtd) Pago',
+            total: this.resultsPaid.length ? this.resultsPaid.length : 0,
           },
           notPaid: {
-            title:'Não processado',
-            total: 15210,
+            title: '(Qtd) Pendente',
+            total: this.resultsNotPaid.length ? this.resultsNotPaid.length : 0,
           }
         }
       },
       {
         title: 'Situação de transações',
-        data: data.Pie,
+        data: {
+          labels: [`${this.getPercent(this.resultsPaid.length)}`, `${this.getPercent(this.resultsNotPaid.length)}`],
+          series: [35, 65]
+        },
         options: {
           donut: true,
           showLabel: true
@@ -47,21 +74,69 @@ export class ReportComponent implements OnInit {
         type: 'Pie',
         resume: {
           paid: {
-            title:'Pago 35%',
-            total: '23.434,00',
+            title: 'Pago',
+            total: `${this.resultsAmountPaid}`,
           },
           notPaid: {
-            title:'Pendente 65%',
-            total: '12.212,00',
+            title: 'Pendente',
+            total: `${this.resultsAmountNotPaid}`,
           }
         }
-      },
+      }
     ];
-
-
   }
+
+  // Calc total percent
+  getPercent(value) {
+    let totalPercent = (value * 100) / (this.resultsPaid.length + this.resultsNotPaid.length);
+    return `${totalPercent.toString().slice(0, 4)}%`;
+  }
+
+  // Group total type transaction 
+  getTypeTransaction(data, filter) {
+    return data.listaControleLancamento.filter(item => item.lancamentoContaCorrenteCliente.nomeSituacaoRemessa === filter)
+  }
+
+  // Converter (R$)
+  // formatCurrency(amount) {
+  //   return (amount).toLocaleString('pt-BR');
+  // }
+
+  // Calc of the sum for all transactions
+  getAmountTransaction(data) {
+    return formatCurrency(data.reduce((sum, item) => sum + item.valorLancamentoRemessa, 0))
+  }
+
+  // Group all transaction
+  getTotalTransaction(data) {
+    data.listaControleLancamento.forEach(transaction => {
+      const monthKey = transaction.dataEfetivaLancamento.slice(3);
+      this.transactionTotalMonth[monthKey] = (this.transactionTotalMonth[monthKey] ? this.transactionTotalMonth[monthKey] : 0) + 1;
+    });
+  }
+
+  // Identify all transaction
+  getObjectReportAmountTotal(data) {
+    this.transactions = data;
+    this.resultsPaid = this.getTypeTransaction(data, "Pago");
+    this.resultsNotPaid = this.getTypeTransaction(data, "Pendente");
+    this.resultsAmountPaid = this.getAmountTransaction(this.resultsPaid);
+    this.resultsAmountNotPaid = this.getAmountTransaction(this.resultsNotPaid);
+  }
+
+  //Get all transaction
+  getTransactions() {
+    this._transactionService.getTransaction().subscribe(
+      data => {
+        this.getObjectReportAmountTotal(data);
+        this.getTotalTransaction(data);
+        this.HandleReportAmount()
+      },
+      error => this.errorMsg = error.message);
+  }
+
   ngOnInit() {
+    this.getTransactions();
   }
-
 
 }
