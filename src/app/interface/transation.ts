@@ -19,6 +19,7 @@ export interface ILancamentoContaCorrenteCliente {
 }
 
 export interface IListaControleLancamento {
+    lancamentoContaCorrenteCliente: ILancamentoContaCorrenteCliente,
     dataEfetivaLancamento: string,
     dataLancamentoContaCorrenteCliente: string,
     numeroEvento: number,
@@ -35,7 +36,7 @@ export interface IListaControleLancamento {
 
 export interface ITransacao {
     totalControleLancamento: ITotalLancamento,
-    listaControleLancamento: IListaControleLancamento[],
+    listaControleLancamento: Array<IListaControleLancamento>,
     indice: number,
     tamanhoPagina: number,
     totalElements: number

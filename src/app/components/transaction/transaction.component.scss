@@ -31,3 +31,18 @@ table tr:hover {
     cursor: pointer;
     color: $color-white;
 }
+
+.filter {
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    // background-color: red;
+    font-family: $text-font-family;
+}
+.filter > div {
+    padding: 18px;
+    font-size: 22px;
+}

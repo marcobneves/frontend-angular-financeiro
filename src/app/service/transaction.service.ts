@@ -11,8 +11,8 @@ export class TransactionService {
 
   constructor(private http: HttpClient) { }
 
-  getTransaction(): Observable<ITransacao[]> {
-    return this.http.get<ITransacao[]>(this._url)
+  getTransaction(): Observable<ITransacao> {
+    return this.http.get<ITransacao>(this._url)
       .pipe(catchError(this.errorHandle));
   }
 

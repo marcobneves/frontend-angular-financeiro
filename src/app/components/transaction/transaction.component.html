@@ -1,4 +1,15 @@
 <h1 class="title">Transações</h1>
+<div class="filter">
+    <div>
+        <input type="checkbox" name="pendente" value="pendente" (change)="filterGetTransaction($event)"> Pendente
+    </div>
+    <div>
+        <input type="checkbox" name="pago" value="pago" (change)="filterGetTransaction($event)"> Pago
+    </div>
+    <div>
+        Total: {{transactions?transactions.length:0}}
+    </div>
+</div>
 <div class="table-responsivo">
     <table class="table">
         <thead>
@@ -15,13 +26,14 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let transaction of transactions.listaControleLancamento">
-                <th>{{transaction.dataEfetivaLancamento}}</th>
+            <tr *ngFor="let transaction of transactions">
+                <th>{{transaction.dataLancamentoContaCorrenteCliente}}</th>
                 <th>{{transaction.lancamentoContaCorrenteCliente.nomeTipoOperacao}}</th>
                 <th>{{transaction.lancamentoContaCorrenteCliente.numeroRemessaBanco}}</th>
                 <th>{{transaction.lancamentoContaCorrenteCliente.nomeSituacaoRemessa}}</th>
                 <th>{{transaction.dataEfetivaLancamento}}</th>
-                <th>{{transaction.nomeBanco}} [{{transaction.lancamentoContaCorrenteCliente.dadosDomicilioBancario.codigoBanco}}]</th>
+                <th>{{transaction.nomeBanco}}
+                    [{{transaction.lancamentoContaCorrenteCliente.dadosDomicilioBancario.codigoBanco}}]</th>
                 <th>{{transaction.lancamentoContaCorrenteCliente.dadosDomicilioBancario.numeroAgencia}}</th>
                 <th>{{transaction.lancamentoContaCorrenteCliente.dadosDomicilioBancario.numeroContaCorrente}}</th>
                 <th>{{formatCurrencyBr(transaction.valorLancamentoRemessa)}}</th>

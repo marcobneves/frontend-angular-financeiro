@@ -14,7 +14,7 @@ import { ReportComponent } from './components/report/report.component';
     AppComponent,
     TransactionComponent,
     MenuComponent,
-    ReportComponent,
+    ReportComponent
   ],
   imports: [
     BrowserModule,

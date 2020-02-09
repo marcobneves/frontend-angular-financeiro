@@ -64,8 +64,8 @@ export class ReportComponent implements OnInit {
       {
         title: 'Situação de transações',
         data: {
-          labels: [`${this.getPercent(this.resultsPaid.length)}`, `${this.getPercent(this.resultsNotPaid.length)}`],
-          series: [35, 65]
+          labels: [`${this.getPercent(this.resultsNotPaid.length)}%`, `${this.getPercent(this.resultsPaid.length)}%`],
+          series: [this.getPercent(this.resultsNotPaid.length), this.getPercent(this.resultsPaid.length)]
         },
         options: {
           donut: true,
@@ -89,7 +89,7 @@ export class ReportComponent implements OnInit {
   // Calc total percent
   getPercent(value) {
     let totalPercent = (value * 100) / (this.resultsPaid.length + this.resultsNotPaid.length);
-    return `${totalPercent.toString().slice(0, 4)}%`;
+    return parseFloat(totalPercent.toString().slice(0, 4));
   }
 
   // Group total type transaction 
