@@ -39,10 +39,19 @@ table tr:hover {
     justify-content: center;
     justify-items: center;
     align-items: center;
-    // background-color: red;
     font-family: $text-font-family;
 }
 .filter > div {
     padding: 18px;
     font-size: 22px;
+}
+
+.error {
+    font-family: $text-font-family;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    background-color: $error-background;
+    color: $error-text;
 }

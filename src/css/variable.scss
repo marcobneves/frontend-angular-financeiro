@@ -1,3 +1,7 @@
+//Global
+$background-body: #f1f7fa;
+$text-color:#414141;
+
 // Responsive control
 $breakpoint-phone: 640px;
 $breakpoint-tablet: 998px;
@@ -6,7 +10,7 @@ $breakpoint-desktop: 1024px;
 //Colors
 $second-color: #5b4ca6;
 $primary-color: #695bb6;
-$primary-color-opacioty: #8c84c5;
+$primary-color-opacity: #8c84c5;
 $primary-bold: #483c85;
 $primary-color-background: #6153ae14;
 $third-color: #ffffff;
@@ -16,3 +20,7 @@ $fourth-color: #778ba0;
 
 //Style font
 $text-font-family: "Poppins", sans-serif;
+
+//Validation
+$error-background: red;
+$error-text: #ffffff;

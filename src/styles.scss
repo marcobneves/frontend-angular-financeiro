@@ -1,13 +1,12 @@
 @import './css/variable.scss';
 
 body {
-    background-color: #f1f7fa;
+    background-color: $background-body;
 }
 
 .item-form {
     margin-bottom: 20px;
 }
-
 
 .title {
     font-size: 25px;
@@ -15,7 +14,7 @@ body {
     display: flex;
     align-items: center;
     margin-left: 8px;
-    color: #414141;
+    color: $text-color;
     font-family: $text-font-family;
 }
 
@@ -32,10 +31,10 @@ body {
 }
 
 .ct-label {
-    fill: rgba(0, 0, 0, 0.7);
+    fill: $primary-bold;
     font-size: 0.9rem;
     line-height: 1;
-    color: #454545;
+    color: $text-color;
 }
 
 @media (max-width: $breakpoint-phone) {
@@ -45,7 +44,6 @@ body {
         justify-content: center;
     }
     .ct-label {
-        fill: rgba(0, 0, 0, 0.7);
         font-size: 0.5rem;
     }
 }
@@ -54,10 +52,10 @@ body {
     fill: $primary-color;
 }
 .ct-series-a .ct-slice-donut {
-    stroke: #6254af26;
+    stroke: $primary-color-background;
 }
 .ct-series-b .ct-slice-donut {
-    stroke: #6254afb3;
+    stroke: $primary-color-opacity;
 }
 
 /* http://meyerweb.com/eric/tools/css/reset/
