@@ -4,6 +4,8 @@
 A aplicação possibilita um usuário ter acesso a movimentações financeiras realozidas em um determidado período, também terá uma visão macro de valores 'Pago' e 'Pendente'.
 O usuário poderá analizar a quantidade e porcentagem de movimentações realizadas em forma de gráficos.
 
+https://transaction-frontend.herokuapp.com/
+
 <img width="900" src="./image/dashboard.png" alt="Dashboard">
 
 
