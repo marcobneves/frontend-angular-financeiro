@@ -45,7 +45,7 @@ Passo 2: Instalar as depentencias.
 
 ```
 
-npm instal ou npm i
+npm install ou npm i
 
 ```
 

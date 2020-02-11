@@ -1,4 +1,4 @@
 const config = {
-    url: "http://localhost:9090/movimentacao"
+    url: "https://transaction-backend.herokuapp.com/movimentacao"
 }
 export default config;
