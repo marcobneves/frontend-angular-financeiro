@@ -1,15 +1,16 @@
 //Importa as dependências que acabamos de instalar
 const express = require('express');
 const path = require('path');
+const appName = 'frontend';
 
 const app = express();
 
 // Serve os arquivos estáticos da pasta dist (gerada pelo ng build)
-app.use(express.static(__dirname + '/dist/frontend'));
+app.use(express.static(__dirname + `/dist/${appName}`));
 
-app.get('/*', function(req,res) {
-    
-res.sendFile(path.join(__dirname+'/dist/frontend/index.html'));
+app.get('/*', function (req, res) {
+
+    res.sendFile(path.join(__dirname + `/dist/${appName}/index.html`));
 });
 
 // Inicia a aplicação pela porta configurada
