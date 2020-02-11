@@ -18,17 +18,10 @@ exports.config = {
 
   // cucumber command line options
   cucumberOpts: {
-    // require step definition files before executing features
     require: ['./steps/**/*.ts'],
-    format: 'json:results.json',
-    // <string[]> (expression) only execute the features or scenarios with tags matching the expression
     tags: [],
-    // <boolean> fail if there are any undefined or pending steps
     strict: true,
-    // <string[]> (type[:path]) specify the output format, optionally supply PATH to redirect formatter output (repeatable)
-    // <boolean> invoke formatters without executing steps
     dryRun: false,
-    // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
     compiler: []
   },
 

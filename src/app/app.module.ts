@@ -8,8 +8,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { MenuComponent } from './components/menu/menu.component';
 import { ChartistModule } from 'ng-chartist'; 
 import { ReportComponent } from './components/report/report.component';
-import { config } from '../api/config';
-
 
 @NgModule({
   declarations: [

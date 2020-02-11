@@ -3,10 +3,10 @@
     <h1 class="title">Transações</h1>
     <div class="filter">
         <div>
-            <input type="checkbox" name="pendente" value="pendente" (change)="filterGetTransaction($event)"> Pendente
+            <input type="checkbox" id="pendente" name="pendente" value="pendente" (change)="filterGetTransaction($event)"> Pendente
         </div>
         <div>
-            <input type="checkbox" name="pago" value="pago" (change)="filterGetTransaction($event)"> Pago
+            <input type="checkbox" id="pago" name="pago" value="pago" (change)="filterGetTransaction($event)"> Pago
         </div>
         <div>
             Total: {{transactions?transactions.length:0}}
